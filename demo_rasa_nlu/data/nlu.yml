@@ -1,0 +1,237 @@
+version: "2.0"
+nlu:
+- intent: saludo
+  examples: |
+    - hola
+    - buenas tardes
+    - buenos dias
+    - buenas
+    - que hay
+    - hola, buenas tardes
+    - holi
+    - ola
+- intent: despedida
+  examples: |
+    - buenas tardes
+    - adiós
+    - nos vemos
+    - adiós, buen día
+    - ten un buen día
+    - me despido
+    - buenas noches
+    - nos vemos despues
+- intent: afirmacion
+  examples: |
+    - si
+    - s
+    - por supuesto
+    - suena bien
+    - correcto
+    - perfecto
+    - claro
+    - si, por favor.
+    - si quiero
+    - me apetece
+- intent: denegacion
+  examples: |
+    - no
+    - n
+    - nunca
+    - No creo
+    - No me gusta
+    - Ni hablar
+    - No realmente
+    - Ni quiero
+    - Para nada
+    - nunca jamás
+    - A
+- intent: cancelar_pedido
+  examples: |
+    - quiero parar
+    - para
+    - stop
+    - No quiero seguir
+    - Cancelar
+    - paras
+    - paramos
+    - ¿podemos parar?
+    - Paso
+    - pasando
+    - Quiero parar.
+    - Quiero cancelar el pedido.
+    - Quiero abortar el pedidio.
+    - No quiero continuar con el pedido.
+- intent: retar_al_bot
+  examples: |
+    - ¿eres un robot?
+    - ¿eres un humano?
+    - ¿Estoy hablando con un robot?
+    - ¿Estoy hablando con un humano?
+    - ¿Quien eres?
+    - ¿Cómo te llamas?
+    - ¿Qué sientes?
+    - Tu nombre
+    - sentimientos
+    - humano
+    - ¿robot o humano?
+- intent: pedir_ayuda
+  examples: |
+    - ¿Como puedes ayudarme?
+    - ayuda
+    - socorro
+    - no entiendo
+    - no te sigo en juego
+    - ¿puedes ayudar?
+    - ¿?
+    - Quiero pedir ayuda.
+    - ?
+- intent: pedir_pizza
+  examples: |
+    - Quiero pedir pizza.
+    - Quiero realizar un pedido.
+    - Quiero ordenar una pizza.
+    - pizza
+    - hacer un pedido
+    - Realizar pedido de pizza.
+    - Pedir pizza
+    - Ordernar pizza.
+    - Quiero una pizza
+    - Me gustaría pedir pizza.
+    - Me gustaría pedir.
+    - Me gustaría realizar un pedido.
+    - Quiero pizza.
+
+- intent: ver_pedidos
+  examples: |
+    - Quiero ver mis pedidos
+    - Quiero ver un pedido
+    - ver pedido anterior
+    - anterior
+    - pedido anterior
+    - ver pedidos hechos
+    - Visualizar anteriores pedidos
+    - ver pedidos anteriores
+    - observar pedidos anteriores
+    - ¿Cuales son mis pedidos?
+    - Me gustaría pedir ver mis pedidos.
+    - pedidos anteriores
+    - pedidos de ayer
+    - ¿Que pedido hice ayer?
+- intent: decir_nombre
+  examples: |
+    - [Abiam](nombre) García González
+    - [Antonio](nombre) Martínez García
+    - [Manuel](nombre) González Quintana
+    - [Jose](nombre) Quintana Quintana
+    - [Francisco](nombre) González Fernández
+    - [David](nombre) Rodríguez Sanchez
+    - [Javier](nombre) González Rodríguez
+    - [Jose Antonio](nombre) Sanchez Quintana
+    - [Daniel](nombre) Romero García
+    - [Jose Luis](nombre) García Quintana
+    - [Carlos](nombre) Romero Rodríguez
+    - [Miguel](nombre) González Sanchez
+    - [Jose Manuel](nombre) García López
+    - [Rafael](nombre) Rodríguez Martínez
+    - [Pablo](nombre) García Rodríguez
+    - [Alejandro](nombre) García Rodríguez
+    - [Noah](nombre) Sanchez Romero
+    - [Jesus](nombre) González Rodríguez
+    - [Ruben](nombre) Fernández López
+    - [Pedro](nombre) López Martínez
+    - [Alicia](nombre) Sanchez Romero
+    - [Yaritza](nombre) González Sanchez
+    - [Siria](nombre) Fernández Fernández
+    - [Carmen](nombre) Martínez Romero
+    - [Lara](nombre) Romero González
+    - [María](nombre) Martínez Sanchez
+- intent: decir_cantidad_de_pizza
+  examples: |
+    - Quiero [10]{"entity": "cantidad_de_pizza", "value": "10"} pizzas.
+    - Quiero [diez]{"entity": "cantidad_de_pizza", "value": "10"} pizzas.
+    - Quiero [2]{"entity": "cantidad_de_pizza", "value": "2"} pizzas.
+    - Quiero [3]{"entity": "cantidad_de_pizza", "value": "3"} pizzas.
+    - Quiero [dos]{"entity": "cantidad_de_pizza", "value": "2"} pizzas.
+    - Quiero [ds]{"entity": "cantidad_de_pizza", "value": "2"} pizzas.
+    - Quiero [5]{"entity": "cantidad_de_pizza", "value": "5"} pizzas.
+    - Quiero [cinco]{"entity": "cantidad_de_pizza", "value": "5"} pizzas.
+    - Quiero [cinc]{"entity": "cantidad_de_pizza", "value": "5"} pizzas.
+    - Quiero [7]{"entity": "cantidad_de_pizza", "value": "7"} pizzas.
+    - Quiero [ocho]{"entity": "cantidad_de_pizza", "value": "8"} pizzas.
+    - Quiero [8]{"entity": "cantidad_de_pizza", "value": "8"} pizzas.
+    - Quiero [siete]{"entity": "cantidad_de_pizza", "value": "7"} pizzas.
+    - Quiero [cuatro]{"entity": "cantidad_de_pizza", "value": "4"} pizzas.
+    - Quiero [4]{"entity": "cantidad_de_pizza", "value": "4"} pizzas.
+    - Quiero [2]{"entity": "cantidad_de_pizza", "value": "2"} pizzas.
+    - Quiero [dos]{"entity": "cantidad_de_pizza", "value": "2"} pizzas.
+    - Quiero [cinco]{"entity": "cantidad_de_pizza", "value": "5"} pizzas.
+    - Quiero [1]{"entity": "cantidad_de_pizza", "value": "1"} pizza.
+    - Quiero [una]{"entity": "cantidad_de_pizza", "value": "1"} pizza.
+    - Quiero [9]{"entity": "cantidad_de_pizza", "value": "9"} pizzas.
+    - Quiero [nueve]{"entity": "cantidad_de_pizza", "value": "9"} pizzas.
+    - Quiero [cinco]{"entity": "cantidad_de_pizza", "value": "5"} pizzas.
+    - Quiero [tres]{"entity": "cantidad_de_pizza", "value": "3"} pizzas.
+    - Quiero [una]{"entity": "cantidad_de_pizza", "value": "1"} pizza.
+    - Quiero [6]{"entity": "cantidad_de_pizza", "value": "6"} pizzas.
+    - Quiero [seis]{"entity": "cantidad_de_pizza", "value": "6"} pizzas.
+- intent: decir_tipo_de_via
+  examples: |
+    - [acera](acera)
+    - [bloque](bloque) C Universidad Las Palmas 3
+    - [BLOQUE]{"entity": "bloque", "value": "bloque"} C Universidad Las Palmas 2
+    - [BL]{"entity": "bloque", "value": "bloque"} C Universidad Las Palmas 3
+    - [BLQUE]{"entity": "bloque", "value": "bloque"} C Universidad Las Palmas 5
+    - [barrio](barrio) las Rehoyas 6
+    - [BARRIO]{"entity": "barrio", "value": "barrio"} las Rehoyas 7
+    - [BARRI]{"entity": "barrio", "value": "barrio"} las Rehoyas 8
+    - [BARRO]{"entity": "barrio", "value": "barrio"} las Rehoyas 9
+    - [BO]{"entity": "barrio", "value": "barrio"} las Rehoyas 10
+    - [avenida](avenida) de Escaleritas 23
+    - [AV]{"entity": "avenida", "value": "avenida"} de Escaleritas 23
+    - [AVDA]{"entity": "avenida", "value": "avenida"} de Escaleritas 78
+    - [AVENIDA]{"entity": "avenida", "value": "avenida"} de Escaleritas 9
+    - [ALAM]{"entity": "alameda", "value": "alameda"} Colón 7
+    - [AL]{"entity": "alameda", "value": "alameda"} Colón 7
+    - [ALAMEDA]{"entity": "alameda", "value": "alameda"} Colón 65
+    - [C]{"entity": "calle", "value": "calle"} Tomas Morales 5
+    - [C/]{"entity": "calle", "value": "calle"} Tomas Morales 3
+    - [CALLE]{"entity": "calle", "value": "calle"} Tomas Morales 32
+    - [C/]{"entity": "calle", "value": "calle"} Albareda 3
+    - [Calle]{"entity": "calle", "value": "calle"} Gobernador Marín Acuña 4
+
+
+- intent: decir_tipo_de_pizza
+  examples: |
+    - Quiero [10]{"entity": "cantidad_de_pizza", "value": "10"} pizzas [margaritas]{"entity": "tipo_de_pizza", "value": "margarita"} [pequeñas]{"entity": "tamano_de_pizza", "value": "pequeño"}
+    - Quiero [diez]{"entity": "cantidad_de_pizza", "value": "10"} pizzas [margaritas]{"entity": "tipo_de_pizza", "value": "margarita"} [pequeñas]{"entity": "tamano_de_pizza", "value": "pequeño"}
+    - Quiero [2]{"entity": "cantidad_de_pizza", "value": "grande"} pizzas [margaritas]{"entity": "tipo_de_pizza", "value": "margarita"} [pequeñas]{"entity": "tamano_de_pizza", "value": "pequeño"}
+    - Quiero [3]{"entity": "cantidad_de_pizza", "value": "3"} pizzas [margaritas]{"entity": "tipo_de_pizza", "value": "margarita"} [pequeñas]{"entity": "tamano_de_pizza", "value": "pequeño"}
+    - Quiero [dos]{"entity": "cantidad_de_pizza", "value": "grande"} pizzas [barbacoas]{"entity": "tipo_de_pizza", "value": "barbacoa"} [pequeñas]{"entity": "tamano_de_pizza", "value": "pequeño"}
+    - Quiero [ds]{"entity": "cantidad_de_pizza", "value": "grande"} pizzas [margaritas]{"entity": "tipo_de_pizza", "value": "margarita"} [pequeñas]{"entity": "tamano_de_pizza", "value": "pequeño"}
+    - Quiero [5]{"entity": "cantidad_de_pizza", "value": "5"} pizzas [MARGARITAS]{"entity": "tipo_de_pizza", "value": "margarita"} [pequeñs]{"entity": "tamano_de_pizza", "value": "pequeño"}
+    - Quiero [cinco]{"entity": "cantidad_de_pizza", "value": "5"} pizzas [MARGARITAS]{"entity": "tipo_de_pizza", "value": "margarita"} [pequeñs]{"entity": "tamano_de_pizza", "value": "pequeño"}
+    - Quiero [cinc]{"entity": "cantidad_de_pizza", "value": "5"} pizzas [MARGARITAS]{"entity": "tipo_de_pizza", "value": "margarita"} [pequeñs]{"entity": "tamano_de_pizza", "value": "pequeño"}
+    - Quiero [7]{"entity": "cantidad_de_pizza", "value": "7"} pizzas [barbacue]{"entity": "tipo_de_pizza", "value": "barabacoa"} [medianas]{"entity": "tamano_de_pizza", "value": "mediano"}
+    - Quiero [ocho]{"entity": "cantidad_de_pizza", "value": "8"} pizzas [barabacoa]{"entity": "tipo_de_pizza", "value": "barbacoa"} [medium]{"entity": "tamano_de_pizza", "value": "mediano"}
+    - Quiero [8]{"entity": "cantidad_de_pizza", "value": "8"} pizzas [barabacoa]{"entity": "tipo_de_pizza", "value": "barbacoa"} [medium]{"entity": "tamano_de_pizza", "value": "mediano"}
+    - Quiero [siete]{"entity": "cantidad_de_pizza", "value": "7"} pizzas [barbacue]{"entity": "tipo_de_pizza", "value": "barabacoa"} [medianas]{"entity": "tamano_de_pizza", "value": "mediano"}
+    - Quiero [cuatro]{"entity": "cantidad_de_pizza", "value": "4"} pizzas [barabacoa]{"entity": "tipo_de_pizza", "value": "barbacoa"} [medium]{"entity": "tamano_de_pizza", "value": "mediano"}
+    - Quiero [4]{"entity": "cantidad_de_pizza", "value": "4"} pizzas [barabacoa]{"entity": "tipo_de_pizza", "value": "barbacoa"} [medium]{"entity": "tamano_de_pizza", "value": "mediano"}
+    - Quiero [2]{"entity": "cantidad_de_pizza", "value": "grande"} pizzas [BARBACOA]{"entity": "tipo_de_pizza", "value": "barbacoa"} [pequeñas]{"entity": "tamano_de_pizza", "value": "pequeño"}
+    - Quiero [dos]{"entity": "cantidad_de_pizza", "value": "grande"} pizzas [BARBACOA]{"entity": "tipo_de_pizza", "value": "barbacoa"} [pequeñas]{"entity": "tamano_de_pizza", "value": "pequeño"}
+    - Quiero [cinco]{"entity": "cantidad_de_pizza", "value": "5"} pizzas [Venecians]{"entity": "tipo_de_pizza", "value": "veneciana"} ["grande"s]{"entity": "tamano_de_pizza", "value": "grande"}
+    - Quiero [1]{"entity": "cantidad_de_pizza", "value": "mediano"} pizza [veneciana]{"entity": "tipo_de_pizza", "value": "veneciana"} ["grande"]{"entity": "tamano_de_pizza", "value": "grande"}
+    - Quiero [una]{"entity": "cantidad_de_pizza", "value": "mediano"} pizza [barbacoa]{"entity": "tipo_de_pizza", "value": "barabacoa"} [pequeña]{"entity": "tamano_de_pizza", "value": "pequeño"}
+    - Quiero [9]{"entity": "cantidad_de_pizza", "value": "9"} pizzas [venecianas]{"entity": "tipo_de_pizza", "value": "veneciana"} ["grande"]{"entity": "tamano_de_pizza", "value": "grande"}
+    - Quiero [nueve]{"entity": "cantidad_de_pizza", "value": "9"} pizzas [venecianas]{"entity": "tipo_de_pizza", "value": "veneciana"} ["grande"]{"entity": "tamano_de_pizza", "value": "grande"}
+    - Quiero [cinco]{"entity": "cantidad_de_pizza", "value": "5"} pizzas [venecianas]{"entity": "tipo_de_pizza", "value": "veneciana"} ["grande"]{"entity": "tamano_de_pizza", "value": "grande"}
+    - Quiero [tres]{"entity": "cantidad_de_pizza", "value": "3"} pizzas [venecianas]{"entity": "tipo_de_pizza", "value": "veneciana"} ["grande"]{"entity": "tamano_de_pizza", "value": "grande"}
+    - Quiero [una]{"entity": "cantidad_de_pizza", "value": "mediano"} pizza [margarita]{"entity": "tipo_de_pizza", "value": "margarita"} [mediana]{"entity": "tamano_de_pizza", "value": "mediano"}
+    - Quiero [6]{"entity": "cantidad_de_pizza", "value": "6"} pizzas [venecianas]{"entity": "tipo_de_pizza", "value": "veneciana"} ["grande"]{"entity": "tamano_de_pizza", "value": "grande"}
+    - Quiero [seis]{"entity": "cantidad_de_pizza", "value": "6"} pizzas [venecianas]{"entity": "tipo_de_pizza", "value": "veneciana"} ["grande"]{"entity": "tamano_de_pizza", "value": "grande"}
+- intent: decir_tamano_de_pizza
+  examples: |
+    - [mediana](tamano_de_pizza)
+    - [grande](tamano_de_pizza)
+    - [pequeña](tamano_de_pizza)
+#- intent: decir_cantidad_de_pizza

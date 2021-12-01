@@ -1,0 +1,24 @@
+version: "2.0"
+
+rules:
+
+- rule: decir adios siempre que un usuario diga adios
+  steps:
+  - intent: despedida
+  - action: utter_despedida
+
+- rule: Decir soy un robot siempre que se rete al bot
+  steps:
+  - intent: retar_al_bot
+  - action: utter_retar_al_bot
+
+- rule: Dar información cuando se pida ayuda
+  steps:
+  - intent: pedir_ayuda
+  - action: utter_pedir_ayuda
+  - action: utter_afirmacion
+
+- rule: Dar información cuando salude.
+  steps:
+  - intent: saludo
+  - action: utter_saludo

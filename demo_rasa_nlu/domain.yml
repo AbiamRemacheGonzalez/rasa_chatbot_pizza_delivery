@@ -1,0 +1,242 @@
+version: '2.0'
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
+intents:
+- decir_tipo_de_via
+- denegacion
+- pedir_pizza
+- saludo
+- decir_nombre
+- afirmacion
+- cancelar_pedido
+- despedida
+- retar_al_bot
+- pedir_ayuda
+- decir_tipo_de_pizza
+- decir_tamano_de_pizza
+- ver_pedidos
+- decir_cantidad_de_pizza
+entities:
+- nombre
+- barrio
+- alameda
+- avenida
+- acera
+- bloque
+- calle
+- tipo_de_pizza
+- tamano_de_pizza
+- cantidad_de_pizza
+
+slots:
+  nombre:
+    type: any
+    influence_conversation: false
+  primer_apellido:
+    type: any
+    influence_conversation: false
+  segundo_apellido:
+    type: any
+    influence_conversation: false
+  tipo_de_via:
+    type: any
+    influence_conversation: false
+  nombre_de_via:
+    type: any
+    influence_conversation: false
+  numero_de_via:
+    type: any
+    influence_conversation: false
+  numero_de_piso:
+    type: any
+    influence_conversation: false
+  puerta:
+    type: any
+    influence_conversation: false
+  tipo_de_pizza:
+    type: any
+    influence_conversation: false
+  tamano_de_pizza:
+    type: any
+    influence_conversation: false
+  cantidad_de_pizza:
+    type: any
+    influence_conversation: false
+
+
+responses:
+  utter_saludo:
+  - text: |-
+      Hola, mi nombre es Exú y estoy capacitado para desempeñar dos funciones:
+        - Realizar pedidos de pizza
+        - Visualizar anteriores pedidos
+        
+      Si tienes cualquier problema puedes escribir ? o la palabra ayuda.
+      Dicho esto, ¿En que puedo ayudarte?
+    buttons:
+    - title: "Pedir pizza"
+      payload: "pedir pizza"
+    - title: "Ver pedidos"
+      payload: "ver pedidos anteriores"
+    - title: "Ayuda"
+      payload: "ayuda"
+    - title: "Salir"
+      payload: "adiós"
+  utter_afirmacion:
+  - text: ¿Hay algo más en lo que pueda ayudarte?
+    buttons:
+    - title: "Pedir pizza"
+      payload: "pedir pizza"
+    - title: "Ver pedidos"
+      payload: "ver pedidos anteriores"
+    - title: "Ayuda"
+      payload: "ayuda"
+    - title: "Salir"
+      payload: "adiós"
+  utter_despedida:
+  - text: Hay sido un placer ayudarte. Espero volver a verte.
+  utter_retar_al_bot:
+  - text: Soy un chatbot implementado en RASA. Mi nombre es exú, que significa "el que todo lo ve".
+  utter_pedir_ayuda:
+  - text: |-
+      Estoy capacitado para desempeñar dos funciones:
+      - Realizar pedidos de pizza.
+      - Visualizar anteriores pedidos.
+
+      Para pedir ayuda en cualquier momento puedes escribir "?"" o la palabra "ayuda".
+    image: "https://previews.123rf.com/images/kongvector/kongvector1707/kongvector170701132/81954273-ilustraci%C3%B3n-de-vector-de-cara-feliz-pizza-personaje-de-dibujos-animados.jpg"
+  - text: |-
+      Con exú puedes hacer pedidos de pizza y ver pedidos anteriores.
+      Para pedir ayuda en cualquier momento puedes escribir ? o la palabra ayuda.
+    image: "https://previews.123rf.com/images/kongvector/kongvector1707/kongvector170701132/81954273-ilustraci%C3%B3n-de-vector-de-cara-feliz-pizza-personaje-de-dibujos-animados.jpg"
+  utter_ask_nombre:
+  - text: Para realizar la operación necesitaré saber algunos datos. ¿Cuál es tu nombre completo?
+  utter_ask_primer_apellido:
+  - text: ¿Cuales son tus apellidos?
+  utter_ask_segundo_apellido:
+  - text: ¿Cual es tu segundo apellido?
+  utter_mostrar_registro:
+  - text: Se ha registrado el usuario {nombre} {primer_apellido} {segundo_apellido}
+  utter_ask_continuar:
+  - text: ¿Esta seguro que quiere cancelar el pedido?
+  utter_ask_tipo_de_via:
+  - text: |-
+      Perfecto {nombre}, ahora necesito saber cual es tu dirección para enviar el pedido.
+      ¿Cuál es tu dirección? (Ejemplo: C/ Tomas Morales 3)
+  utter_ask_nombre_de_via:
+  - text: ¿Cual es el nombre de tu {tipo_de_via}?
+  utter_ask_numero_de_via:
+  - text: ¿En que número se encuentra su vivienda? 
+  utter_ask_numero_de_piso:
+  - text: |-
+      ¿Cual es el piso de su vivienda?(Ejemplo: 4º A, 6º izq SUR)
+  utter_ask_puerta:
+  - text: ¿en que puerta su vivienda?
+  utter_ask_tipo_de_pizza:
+  - text: |-
+      Ha accedido al portal de pedidos de pizza. El menú disponible es:
+      - Margarita
+      - Barbacoa
+      - Veneciana
+
+      En los tamaños pequeña, mediana y grande.
+      ¿Podría indicarnos el tipo de pizza?
+    buttons:
+    - title: "Margarita"
+      payload: "margarita"
+    - title: "Barbacoa"
+      payload: "barbacoa"
+    - title: "Veneciana"
+      payload: "veneciana"
+  utter_ask_tamano_de_pizza:
+  - text: |-
+      ¿Podría indicarnos el tamaño de la pizza {tipo_de_pizza} que ha solicitado?
+    buttons:
+    - title: "Grande"
+      payload: "grande"
+    - title: "Mediana"
+      payload: "mediana"
+    - title: "Pequeña"
+      payload: "pequeña"
+  utter_ask_cantidad_de_pizza:
+  - text: ¿Podría indicarnos la cantidad de pizza {tipo_de_pizza} en tamaño {tamano_de_pizza} que desea?
+    buttons:
+    - title: "1"
+      payload: "Quiero una pizza {tipo_de_pizza} {tamano_de_pizza}"
+    - title: "2"
+      payload: "Quiero dos pizzas {tipo_de_pizza} {tamano_de_pizza}"
+    - title: "3"
+      payload: "Quiero tres pizzas  {tipo_de_pizza} {tamano_de_pizza}"
+    - title: "4"
+      payload: "Quiero cuatro pizza {tipo_de_pizza} {tamano_de_pizza}"
+    - title: "5"
+      payload: "Quiero cinco pizzas {tipo_de_pizza} {tamano_de_pizza}"
+    - title: "6"
+      payload: "Quiero seis pizzas  {tipo_de_pizza} {tamano_de_pizza}"
+    - title: "7"
+      payload: "Quiero siete pizza {tipo_de_pizza} {tamano_de_pizza}"
+    - title: "8"
+      payload: "Quiero ocho pizzas {tipo_de_pizza} {tamano_de_pizza}"
+    - title: "9"
+      payload: "Quiero nueve pizzas  {tipo_de_pizza} {tamano_de_pizza}"
+    - title: "10"
+      payload: "Quiero diez pizzas  {tipo_de_pizza} {tamano_de_pizza}"
+actions:
+- action_dir_form
+- action_name_form
+- action_pizza_form
+- action_reset_slots
+- utter_afirmacion
+- utter_ask_continuar
+- utter_saludo
+- validate_dir_form
+- validate_name_form
+- validate_pizza_form
+- action_mostrar_pedidos
+forms:
+  name_form:
+    required_slots:
+      nombre:
+      - type: from_text
+        entity: nombre
+        not_intent: despedida, pedir_ayuda, saludo
+      primer_apellido:
+      - type: from_text
+        not_intent: despedida, pedir_ayuda, saludo
+      segundo_apellido:
+      - type: from_text
+        not_intent: despedida, pedir_ayuda, saludo
+  dir_form:
+    required_slots:
+      tipo_de_via:
+      - type: from_text
+        intent: decir_tipo_de_via
+        not_intent: despedida, pedir_ayuda, saludo, decir_cantidad_de_pizza
+      nombre_de_via:
+      - type: from_text
+        not_intent: despedida, pedir_ayuda, saludo, decir_cantidad_de_pizza
+      numero_de_via:
+      - type: from_text
+        not_intent: despedida, pedir_ayuda, saludo, decir_cantidad_de_pizza
+      numero_de_piso:
+      - type: from_text
+        not_intent: despedida, pedir_ayuda, saludo, decir_tipo_de_pizza, decir_cantidad_de_pizza
+      puerta:
+      - type: from_text
+        not_intent: despedida, pedir_ayuda, saludo
+  pizza_form:
+    required_slots:
+      tipo_de_pizza:
+      - type: from_entity
+        entity: tipo_de_pizza
+        not_intent: despedida, pedir_ayuda, saludo, decir_tipo_de_via
+      tamano_de_pizza:
+      - type: from_entity
+        entity: tamano_de_pizza
+        not_intent: despedida, pedir_ayuda, saludo, decir_tipo_de_via
+      cantidad_de_pizza:
+      - type: from_entity
+        intent: decir_cantidad_de_pizza
+        entity: cantidad_de_pizza
+        not_intent: decir_tipo_de_via, pedir_pizza

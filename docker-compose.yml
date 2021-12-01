@@ -1,0 +1,63 @@
+version: "3.4"
+networks:
+  desarrollo-network:
+    external: true
+services:
+  rasa_nlu:
+    build:
+      context: ./demo_rasa_nlu
+    restart: always
+    container_name: demo_rasa_nlu
+    ports:
+      - "5005:5005"
+    expose:
+      - "5055/tcp"
+      - "5005/tcp"
+    networks:
+      - desarrollo-network
+  rasa_action_server:
+    build:
+      context: ./demo_rasa_action_server
+    container_name: demo_rasa_action_server
+    ports:
+      - "5055:5055"
+    expose:
+      - "5055/tcp"
+      - "5005/tcp"
+    networks:
+      - desarrollo-network
+  rasa_webchat:
+    build:
+      context: ./demo_rasa_webchat
+    container_name: demo_rasa_webchat
+    ports:
+      - "80:80"
+    networks:
+      - desarrollo-network
+  postgres:
+    image: "postgres:9.6.23-alpine3.14"
+    container_name: demo_rasa_postgres
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USERNAME: "${DB_USER:-admin}"
+      POSTGRES_PASSWORD: "${DB_PASSWORD:-1234}"
+      POSTGRES_DATABASE: "${DB_DATABASE:-rasa}"
+    volumes:
+      - ./demo_rasa_postgres/init1.sql:/docker-entrypoint-initdb.d/init1.sql
+      - ./demo_rasa_postgres/init2.sql:/docker-entrypoint-initdb.d/init2.sql
+      - ./demo_rasa_postgres/init3.sql:/docker-entrypoint-initdb.d/init3.sql
+      - ./demo_rasa_postgres/postgres-data/:/var/lib/postgresql/data
+    networks:
+      - desarrollo-network
+  # pgadmin:
+  #   restart: always
+  #   image: "dpage/pgadmin4"
+  #   container_name: pgadmin-db
+  #   ports:
+  #     - "80:80"
+  #   environment:
+  #     PGADMIN_DEFAULT_EMAIL: "abiamrg.14@gmail.com"
+  #     PGADMIN_DEFAULT_PASSWORD: "1234"
+  #   networks:
+  #     - desarrollo-network

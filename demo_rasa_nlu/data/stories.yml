@@ -1,0 +1,80 @@
+version: "2.0"
+
+stories:
+- story: El usuario quiere ver sus pedidos
+  steps:
+  - intent: ver_pedidos
+  - action: action_reset_slots
+  - action: name_form
+  - active_loop: name_form
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  - action: action_mostrar_pedidos
+  - action: utter_afirmacion
+
+- story: El usuario empieza un pedido
+  steps:
+  - intent: pedir_pizza
+  - action: action_reset_slots
+  - action: name_form
+  - active_loop: name_form
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  - action: action_name_form
+  - checkpoint: empezar_formulario_de_dirección
+
+- story: Le pedimos su dirección.
+  steps:
+  - checkpoint: empezar_formulario_de_dirección
+  - action: dir_form
+  - active_loop: dir_form
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  - action: action_dir_form
+  - checkpoint: empezar_formulario_de_pizza
+
+- story: Ofrecemos el menu para que el usuario elija.
+  steps:
+  - checkpoint: empezar_formulario_de_pizza
+  - action: pizza_form
+  - active_loop: pizza_form
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  - action: action_pizza_form
+  - action: utter_afirmacion
+
+
+
+# - story: El usuario comienza un pedido y lo quiere cancelar.
+#   steps:
+#   - intent: pedir_pizza
+#   - action: action_reset_slots
+#   - action: name_form
+#   - active_loop: name_form
+#   - intent: cancelar_pedido
+#   - action: utter_ask_continuar
+#   - checkpoint: comprobar_respuesta
+
+# - story: El usuario responde que si quiere cancelar
+#   steps:
+#   - checkpoint: comprobar_respuesta
+#   - intent: afirmacion
+#   - action: action_deactivate_loop
+#   - active_loop: null
+#   - action: utter_afirmacion
+
+# - story: El usuario responde que no quiere cancelar
+#   steps:
+#   - checkpoint: comprobar_respuesta
+#   - intent: denegacion
+#   - action: name_form
+#   - active_loop: name_form
+#   - active_loop: null
+#   - slot_was_set:
+#     - requested_slot: null
+#   - action: utter_mostrar_registro
+#   - action: action_name_form
